@@ -37,8 +37,14 @@ function objToSql(ob) {
 
 // Object for all our SQL statement functions.
 let orm = {
-    selectAll: function() {
-
+    selectAll: function(tableInput, cb) {
+        let query = "SELECT * FROM " + tableInput + ";";
+        connection.query(query, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            cb(result);
+        });
     },
     insertOne: function() {
 
