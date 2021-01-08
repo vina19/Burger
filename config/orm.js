@@ -37,18 +37,38 @@ function objToSql(ob) {
 
 // Object for all our SQL statement functions.
 let orm = {
+
+    // Select everything from the database.
     selectAll: function(tableInput, cb) {
-        let query = "SELECT * FROM " + tableInput + ";";
-        connection.query(query, (err, result) => {
+        let queryString = "SELECT * FROM " + tableInput + ";";
+        connection.queryString(queryString, (err, result) => {
             if (err) {
                 throw err;
             }
             cb(result);
         });
     },
-    insertOne: function() {
 
+    // Insert data to the database.
+    insertOne: function(table, cols, vals, cb) {
+        let queryString = "INSERT INTO " + table;
+
+        queryString += " (";
+        queryString += cols.toString();
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += printQuestionMarks(vals.length);
+        queryString += ") ";
+
+        connection.query(queryString, vals, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            cb(result);
+        });
     },
+
+    // Update data in the database.
     updateOne: function() {
 
     }
