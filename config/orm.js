@@ -69,8 +69,20 @@ let orm = {
     },
 
     // Update data in the database.
-    updateOne: function() {
+    updateOne: function(table, objColVals, condition, cb) {
+        let queryString = "UPDATE " + table;
 
+        queryString += " SET ";
+        queryString += objToSql(objColVals);
+        queryString += " WHERE ";
+        queryString += condition;
+
+        connection.query(queryString, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            cb(result);
+        });
     }
 };
 
