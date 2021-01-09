@@ -30,4 +30,20 @@ router.post("/api/burgers", function(req, res) {
     });
 });
 
+// PUT to update the burger data.
+router.put("/api/burgers/:id", function(req, res) {
+    let condition = "id = " + req.params.id;
+
+    burger.updateOne({
+        devoured: req.body.devoured
+    }, condition, function(result) {
+        if (result.changedRows == 0) {
+            // return 404 when the ID is not exist and no rows changed.
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        };
+    });
+});
+
 module.exports = router;
