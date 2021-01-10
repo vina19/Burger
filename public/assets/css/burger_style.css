@@ -1,19 +1,46 @@
+body {
+    background-image: url("../img/692405_pastel-tie-dye-free-wallpapers-abstract-wallpapers-timbena-com_1898x1198_h.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h2 {
+    font-family: 'Righteous', cursive;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+p {
+    font-family: 'Righteous', cursive;
+    font-size: 15px;
+    font-weight: bold;
+}
+
 li {
     padding: 5px;
     margin: 5px;
     background: #faebd7;
+    font-family: 'Righteous', cursive;
 }
   
-.label {
+.lead {
+    font-family: 'Hanalei Fill', cursive;
+    font-size: 45px;
     font-weight: bold;
+    color: maroon
 }
   
-.create-update-form {
-    padding: 5px;
-    margin: 5px;
-    background: aqua;
+#burger-intro {
+    background: #ffdd99;
 }
-  
-.form-group {
-    margin-bottom: 5px;
+
+img {
+    width: 350px;
+    height: 300px;
+}
+
+button {
+    font-family: 'Acme', sans-serif;
 }
