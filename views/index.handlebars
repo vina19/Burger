@@ -2,24 +2,26 @@
     <h1>Eat-Da-Burger!</h1>
 
     <div class="row" id="burgers">
-        <div class="col-md-6 not-devoured">
+        <div class="col-md-6 burgers">
+            <h2>Ready Burgers to be devoured:</h2>
             <ul>
                 {{#each burgers}}
-                {{#unless devoured}}
-                {{> burgers/burger-block devoured=false}}
-                {{/unless}}
+                    {{#unless devoured}}
+                        {{> burgers/burger-block devoured=false}}
+                    {{/unless}}
                 {{/each}}
             </ul>
         </div>
     </div>
-    
+
     <div class="row" id="devoured-burgers">
-        <div class="col-md-6 yes-devoured">
+        <div class= "devoured">
+            <h2>Devoured Burgers:</h2>
             <ul>
                 {{#each burgers}}
-                {{#if devoured}}
-                {{> burgers/burger-block devoured=true}}
-                {{/if}}
+                    {{#if devoured}}
+                        {{> burgers/burger-block devoured=true}}
+                    {{/if}}
                 {{/each}}
             </ul>
         </div>
@@ -30,8 +32,11 @@
             <div class="col-md-12 text-center submit-burger">
                 <h2>Insert Burger name:</h2>
                 <form class="create-form">
-                    <input type="text" class="form-control" name="burger-name" value="" id="burger-name">
-                    <button type="submit" class="btn btn-primary" id="input-burger-btn">Submit</button>
+                    <div class="form-group">
+                        <label for="burg">Burger Name:</label>
+                        <input type="text" id="burger-name" name="burger-name">
+                    </div>
+                    <button type="submit">Submit</button>
                 </form>
                 <p>Enter a burger you want to eat Click the "Submit" button.</p>
             </div>
