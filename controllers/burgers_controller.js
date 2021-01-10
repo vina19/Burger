@@ -8,7 +8,7 @@ const burger = require('../models/burger');
 // Create all our routes and set up logic within those routes where required.
 // GET burgers database.
 router.get("/", function(req, res) {
-    burger.all(function(data) {
+    burger.selectAll(function(data) {
       let hbsObject = {
         burgers: data
       };
