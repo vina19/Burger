@@ -6,7 +6,7 @@
             <ul>
                 {{#each burgers}}
                 {{#unless devoured}}
-                {{> burgers/burger-block devoured=true}}
+                {{> burgers/burger-block devoured=false}}
                 {{/unless}}
                 {{/each}}
             </ul>
@@ -14,11 +14,11 @@
     </div>
     
     <div class="row" id="devoured-burgers">
-        <div class="col-md-6 not-devoured">
+        <div class="col-md-6 yes-devoured">
             <ul>
                 {{#each burgers}}
                 {{#if devoured}}
-                {{> burgers/burger-block devoured=false}}
+                {{> burgers/burger-block devoured=true}}
                 {{/if}}
                 {{/each}}
             </ul>
@@ -30,7 +30,7 @@
             <div class="col-md-12 text-center submit-burger">
                 <h2>Insert Burger name:</h2>
                 <form class="create-form">
-                    <input type="text" class="form-control" name="burger-name" value="" id="input-burger">
+                    <input type="text" class="form-control" name="burger-name" value="" id="burger-name">
                     <button type="submit" class="btn btn-primary" id="input-burger-btn">Submit</button>
                 </form>
                 <p>Enter a burger you want to eat Click the "Submit" button.</p>
