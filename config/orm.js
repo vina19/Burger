@@ -41,7 +41,7 @@ let orm = {
     // Select everything from the database.
     selectAll: function(tableInput, cb) {
         let queryString = "SELECT * FROM " + tableInput + ";";
-        connection.queryString(queryString, (err, result) => {
+        connection.query(queryString, (err, result) => {
             if (err) {
                 throw err;
             }
